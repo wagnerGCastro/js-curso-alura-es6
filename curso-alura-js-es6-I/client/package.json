@@ -1,0 +1,19 @@
+{
+  "name": "curso-alura-es5",
+  "version": "1.0.0",
+  "description": "curso-alura-es5",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wagnerGCastro/js-curso-alura-es6.git"
+  },
+  "author": "wagner",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wagnerGCastro/js-curso-alura-es6/issues"
+  },
+  "homepage": "https://github.com/wagnerGCastro/js-curso-alura-es6#readme"
+}
