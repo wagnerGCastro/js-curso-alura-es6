@@ -1,0 +1,22 @@
+{
+  "name": "curso-alura-es5",
+  "description": "curso-alura-es5",
+  "main": "index.js",
+  "authors": [
+    "wagner"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/wagnerGCastro/js-curso-alura-es6",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "1.9-multiroom-chat-realtime-com-websocket/application/public/components/",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "bootstrap": "boostrap#3.3.6"
+  }
+}
