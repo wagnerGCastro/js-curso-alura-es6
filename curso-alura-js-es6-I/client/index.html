@@ -11,7 +11,7 @@
     
     <h1 class="text-center">Negociações</h1>
     
-    <form class="form">
+    <form class="form" onsubmit="negociacao.adiciona(event)">
         
         <div class="form-group">
             <label for="data">Data</label>
@@ -59,35 +59,11 @@
         </tfoot>
     </table>
     
-    <script type="text/javascript" src="assets/js/app/models/Negociacao.js"></script>
+    <script type="text/javascript" src="assets/js/app/models/Negociacao_model.js"></script>
+    <script type="text/javascript" src="assets/js/app/controllers/Negociacao.js"></script>
     <script type="text/javascript">
-        let hoje = new Date();
 
-        let n1      = new Negociacao(new Date(), 2, 3);
-
-        console.log(Object.isFrozen(n1));        
-        Object.freeze(n1);
-        console.log(Object.isFrozen(n1));
-
-        n1._quantidade = 1000;
-
-        hoje.setDate(12);
-
-
-        // verificando se os dados são mutaveis (false)
-            console.log(n1.data);
-            var amanha = new Date();
-            amanha.setDate(11);
-            n1.data = amanha;
-
-        // verificando se os dados são mutaveis (true)
-        console.log(n1.data);
-        n1.data.setDate(11);
-
-        console.log(n1);
-        console.log(n1.quantidade);
-        console.log(n1.volume);
-        console.log(n1.data);
+        let negociacao  = new Negociacao();
 
     </script>
 </body>

@@ -1,4 +1,4 @@
-class Negociacao {
+class Negociacao_model {
 
 	constructor(data, quantidade, valor) {
 		//this._data = data;
