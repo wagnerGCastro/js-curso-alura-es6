@@ -31,7 +31,7 @@ class Negociacoes_view {
 										<td>${DateHelper.dataParaTexto(n._data)}</td>
 										<td>${n._quantidade}</td>
 										<td>${n._valor}</td>
-										<td>${n._quantidade * n._valor} </td>
+										<td>${n.volume} </td>
 									</tr>						
 								`
 							}
@@ -40,6 +40,18 @@ class Negociacoes_view {
 		        </tbody>
 		        
 		        <tfoot>
+		        	<tr>
+		        		<td colspan="3"> </td>
+		        		<td>
+							${
+								( () => {
+									let total = 0;
+									model.negociacoes.forEach( n => total+= n.volume);
+									return total;
+								})()
+							}
+		        		</td>
+		        	</tr>
 		        </tfoot>
 		    </table>
 		`
