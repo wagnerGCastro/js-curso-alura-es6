@@ -5,22 +5,26 @@ class Negociacao {
 		this._inputData 	  	= $('#data');
 		this._inputQuantidade 	= $('#quantidade');
 		this._inputValor 	  	= $('#valor');
+		
+
 		this._listaNegociacoes 	= new ListaNegociacoes_model();
+		this._negociacoesView   = new Negociacoes_view($('#negociacoes-view')); 
+
+		// load views
+		this._negociacoesView.loadTemplateNegociacoes(this._listaNegociacoes);
 	}
 
 	adiciona(event) {
+		let negociacao;
+
 		event.preventDefault();
 		this._listaNegociacoes.adiciona(this._criaNegociacao());
-
+		this._negociacoesView.loadTemplateNegociacoes(this._listaNegociacoes);
 		this._limpaFormulario();
-
-		// maneira de verifca se imutavel
-		//this._listaNegociacoes.negociacoes.length = 0;
-		//this._listaNegociacoes.negociacoes.push(this._criaNegociacao());
-
 
 
 		console.log(this._listaNegociacoes.negociacoes);
+		console.warn(typeof(this._listaNegociacoes.negociacoes));
 	}
 
 	_criaNegociacao() {
@@ -31,7 +35,7 @@ class Negociacao {
 	}
 
 	_limpaFormulario() {
-		this._inputData.value = 'dd-mm-aaaa';
+		this._inputData.value = 'dd/mm/aaaa';
 		this._inputQuantidade.value = 0;
 		this._inputValor.value = 0.0;
 		this._inputData.focus();
