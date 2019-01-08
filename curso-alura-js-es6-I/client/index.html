@@ -10,6 +10,8 @@
 <body class="container">
     
     <h1 class="text-center">Negociações</h1>
+
+    <div class="mensagens" id="mensagens" > </div>
     
     <form class="form" onsubmit="negociacao.adiciona(event)">
         
@@ -63,10 +65,13 @@
     
     <!-- helpers -->
     <script type="text/javascript" src="assets/js/app/helpers/DateHelper.js"></script>
+    <!-- libraries -->
+    <script type="text/javascript" src="assets/js/lib/Mensagem.js"></script>
     <!-- models -->
     <script type="text/javascript" src="assets/js/app/models/Negociacao_model.js"></script>
     <script type="text/javascript" src="assets/js/app/models/ListaNegociacoes_model.js"></script>
     <!-- views -->
+    <script type="text/javascript" src="assets/js/app/views/Templates_view.js"></script>
     <script type="text/javascript" src="assets/js/app/views/negociacoes/Negociacoes_view.js"></script>
     <!-- controllers -->
     <script type="text/javascript" src="assets/js/app/controllers/Negociacao.js"></script>
