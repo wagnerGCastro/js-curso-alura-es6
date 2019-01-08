@@ -1,14 +1,14 @@
-class Negociacoes_view {
+class Negociacoes_view  extends Template_view {
 
-	constructor(el) {
-		this._el = el;
+	constructor(element) {
+		super(element);
 	}
 
-	loadTemplateNegociacoes(model) {
-		this._el.innerHTML = this._templateNegociacoes(model);
-	}
+	// loadTemplateNegociacoes(model) {
+	// 	this._el.innerHTML = this._templateNegociacoes(model);
+	// }
 
-	_templateNegociacoes(model) {
+	template(model) {
 		return `
 			<table id="table-negociacoes" class="table table-hover table-bordered">
 		        <thead>

@@ -9,21 +9,21 @@ class Negociacao {
 		this._listaNegociacoes 	= new ListaNegociacoes_model();
 		this._negociacoesView   = new Negociacoes_view($('#negociacoes-view')); 
 		this._mensagem 		    = new Mensagem();
-		this._templatesView  	= new Templates_view($('.mensagens')); 
+		this._mensagemView  	= new Mensagem_view($('.mensagens')); 
 	
 		// load views
-		this._negociacoesView.loadTemplateNegociacoes(this._listaNegociacoes);
-		this._templatesView.loadTemplateMensagem(this._mensagem);
+		this._negociacoesView.loadTemplate(this._listaNegociacoes);
+		this._mensagemView.loadTemplate(this._mensagem);
 		
 	}
 
 	adiciona(event) {
 		event.preventDefault();
 		this._listaNegociacoes.adiciona(this._criaNegociacao());
-		this._negociacoesView.loadTemplateNegociacoes(this._listaNegociacoes);
+		this._negociacoesView.loadTemplate(this._listaNegociacoes);
 
 		this._mensagem.texto ='Negociação adicionada com sucesso!'; 
-		this._templatesView.loadTemplateMensagem(this._mensagem);
+		this._mensagemView.loadTemplate(this._mensagem);
 
 		this._limpaFormulario();
 
