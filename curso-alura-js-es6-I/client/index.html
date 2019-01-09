@@ -67,6 +67,7 @@
     <script type="text/javascript" src="assets/js/app/helpers/DateHelper.js"></script>
     <!-- libraries -->
     <script type="text/javascript" src="assets/js/lib/Mensagem.js"></script>
+
     <!-- models -->
     <script type="text/javascript" src="assets/js/app/models/Negociacao_model.js"></script>
     <script type="text/javascript" src="assets/js/app/models/ListaNegociacoes_model.js"></script>
@@ -77,23 +78,27 @@
     <!-- controllers -->
     <script type="text/javascript" src="assets/js/app/controllers/Negociacao.js"></script>
     <script type="text/javascript">
+        let negociacao = new  Negociacao();
+
         /**
          * O objeto Proxy é usado para definir comportamentos customizados para operações 
          * fundamentais (por exemplo, pesquisa de propriedade, atribuição, enumeração, 
          * invocação de função, etc.).
          */
-
         const handlerUppdateViewNegociacao = {
-            get: function(target, prop, receiver) {
-                console.log(`a propriedade "${prop}" foi interceptada`);
-                return Reflect.get(target, prop, receiver);
+            /** quando ha alteração */
+            set: function(target, prop, value ,receiver) {
+                 console.log(`valor anterior: ${target[prop]} novo valor: ${value}`);
+                 return Reflect.set(target, prop, value, receiver);
             }
         };
 
-        let negociacao = new  Proxy(new Negociacao_model(new Date, 2, 2.3), handlerUppdateViewNegociacao);
+        let negociacaoModel = new  Proxy( new Negociacao_model( new Date(), 2, 5.3), handlerUppdateViewNegociacao);
 
-        console.log(negociacao.quantidade);
-        console.log(negociacao.valor);
+        negociacaoModel._quantidade = 10;
+        negociacaoModel._valor      = 200;
+
+        console.log( negociacao);
 
     </script>
 </body>
