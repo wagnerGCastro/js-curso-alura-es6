@@ -77,8 +77,23 @@
     <!-- controllers -->
     <script type="text/javascript" src="assets/js/app/controllers/Negociacao.js"></script>
     <script type="text/javascript">
+        /**
+         * O objeto Proxy é usado para definir comportamentos customizados para operações 
+         * fundamentais (por exemplo, pesquisa de propriedade, atribuição, enumeração, 
+         * invocação de função, etc.).
+         */
 
-        let negociacao  = new Negociacao();
+        const handlerUppdateViewNegociacao = {
+            get: function(target, prop, receiver) {
+                console.log(`a propriedade "${prop}" foi interceptada`);
+                return Reflect.get(target, prop, receiver);
+            }
+        };
+
+        let negociacao = new  Proxy(new Negociacao_model(new Date, 2, 2.3), handlerUppdateViewNegociacao);
+
+        console.log(negociacao.quantidade);
+        console.log(negociacao.valor);
 
     </script>
 </body>
